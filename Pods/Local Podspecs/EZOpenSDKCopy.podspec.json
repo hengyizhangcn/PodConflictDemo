@@ -1,0 +1,107 @@
+{
+  "name": "EZOpenSDKCopy",
+  "version": "1.0.0",
+  "summary": "EZOpenSDK based EZOpenSDKCopy.",
+  "description": "Get EZOpenSDKCopy EZOpenSDK into a library.",
+  "homepage": "https://github.com/hengyizhangcn/EZOpenSDKCopy.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hengyi.zhang": "hengyi.zhang@uama.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/hengyizhangcn/EZOpenSDKCopy.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": [
+    "CoreMedia",
+    "AudioToolbox",
+    "VideoToolbox",
+    "GLKit",
+    "OpenAL",
+    "MobileCoreServices",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "AVFoundation"
+  ],
+  "ios": {
+    "libraries": [
+      "stdc++.6.0.9",
+      "c++",
+      "iconv",
+      "z",
+      "stdc++"
+    ]
+  },
+  "vendored_libraries": [
+    "EZOpenSDKCopy/libEZOpenSDK.a",
+    "EZOpenSDKCopy/openssl/lib/libcrypto.a",
+    "EZOpenSDKCopy/openssl/lib/libssl.a"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "ENABLE_BITCODE": "NO"
+  },
+  "source_files": "EZOpenSDKCopy/*.{h,m}",
+  "dependencies": {
+    "SDWebImage": [
+      "~>3.7.3"
+    ],
+    "MBProgressHUD": [
+      "~> 0.9.2"
+    ],
+    "SVProgressHUD": [
+      "~> 2.0.3"
+    ],
+    "Masonry": [
+      "~> 0.6.4"
+    ]
+  },
+  "resources": [
+    "EZOpenSDKCopy/*.{storyboard}",
+    "EZOpenSDKCopy/Resources/*.{png}"
+  ],
+  "subspecs": [
+    {
+      "name": "Aspects",
+      "source_files": "EZOpenSDKCopy/Aspects/*.{h,m}"
+    },
+    {
+      "name": "CustomUI",
+      "source_files": "EZOpenSDKCopy/CustomUI/*.{h,m}"
+    },
+    {
+      "name": "DDCategory",
+      "source_files": "EZOpenSDKCopy/DDCategory/*.h",
+      "subspecs": [
+        {
+          "name": "Categories",
+          "source_files": "EZOpenSDKCopy/DDCategory/Categories/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Headers",
+      "source_files": "EZOpenSDKCopy/Headers/*.{h,m}"
+    },
+    {
+      "name": "openssl",
+      "subspecs": [
+        {
+          "name": "include",
+          "subspecs": [
+            {
+              "name": "openssl",
+              "source_files": "EZOpenSDKCopy/openssl/include/openssl/*.{h,c}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

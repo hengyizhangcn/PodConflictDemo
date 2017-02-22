@@ -1,0 +1,64 @@
+{
+  "name": "AlipayCopy",
+  "version": "1.0.0",
+  "summary": "A short description of AlipayCopy.",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "homepage": "https://github.com/hengyizhangcn/AlipayCopy.git",
+  "license": "MIT",
+  "authors": {
+    "hengyi.zhang": "hengyi.zhang@uama.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/hengyizhangcn/AlipayCopy.git",
+    "tag": "1.0.0"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreTelephony",
+    "QuartzCore",
+    "CoreText",
+    "CoreGraphics",
+    "UIKit",
+    "Foundation",
+    "CFNetwork",
+    "CoreMotion"
+  ],
+  "ios": {
+    "libraries": [
+      "c++",
+      "z"
+    ]
+  },
+  "vendored_frameworks": "AlipayCopy/AlipaySDK.framework",
+  "vendored_libraries": [
+    "AlipayCopy/libcrypto.a",
+    "AlipayCopy/libssl.a"
+  ],
+  "source_files": "AlipayCopy/*.{h,m}",
+  "resources": [
+    "AlipayCopy/*.{bundle}"
+  ],
+  "subspecs": [
+    {
+      "name": "openssl",
+      "source_files": "AlipayCopy/openssl/*.{h,m,c}"
+    },
+    {
+      "name": "Util",
+      "source_files": "AlipayCopy/Util/*.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "AlipayCopy/Security/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "GTMBase64",
+          "source_files": "AlipayCopy/Security/GTMBase64/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
